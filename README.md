@@ -7,10 +7,10 @@ This project is meant to connect a standard 12v motor to HomeAssistant through E
 
 
 #### Materials Needed
-- NodeMCU ESP32 or ESP8266
+- NodeMCU ESP32 or ESP8266 ([example](https://www.amazon.com/gp/product/B09J95SMG7/ref=ppx_yo_dt_b_asin_image_o05_s00?ie=UTF8&th=1))
 - Jumper wires
-- 12v to 5v stepdown to power the ESP (or an independent power supply)
-- Cytron 20A Bi-Directional 6V-30V DC Motor Driver MD20A (or any motor driver capable of handling large amp loads)
+- [12v to 5v stepdown](https://www.amazon.com/gp/product/B00CBCGAL8/ref=ppx_yo_dt_b_asin_title_o05_s00?ie=UTF8&th=1) to power the ESP (or an independent power supply)
+- [Cytron 20A Bi-Directional 6V-30V DC Motor Driver MD20A](https://www.amazon.com/gp/product/B07RQFN485/ref=ppx_yo_dt_b_asin_title_o02_s00?ie=UTF8&psc=1) (or any motor driver capable of handling large amp loads)
 - HomeAssistant with the ESPHome add-on
 
 
@@ -32,7 +32,7 @@ Below the TV lift, wire the 12v to 5v stepdown into one of the 3 holes of the wa
 ### HomeAssistant & ESPHome Setup
 Regardless of the application, your motor will now be considered a "Cover" in the eyes of HomeAssistant and ESPHome.
 
-Setup your ESPHome and add your new ESP device. Once initial configuration is done, paste the code found in the ESPHome.yaml file beloow "capitave portal:" Under the UP and DOWN sections, you can adjust the amount of time you want the motor to spin in that direction. This is where your timing skills pay off. Change the delay to the respective raising/lowering time you recorded prior to starting this project. Install on the ESP, restart HomeAssistant, and that's it! HomeAssistant will now see a new cover titled Televator that you can use on your dashboard with up/down arrows, or inside NodeRed for automations.
+Setup your ESPHome and add your new ESP device. Once initial configuration is done, paste the code found in the [ESPHome.yaml](https://github.com/tango2590/televator/blob/9214988cd70cf1514626a7958c143fc4e774a4a8/ESPHome.yml) file beloow "capitave portal:" Under the UP and DOWN sections, you can adjust the amount of time you want the motor to spin in that direction. This is where your timing skills pay off. Change the delay to the respective raising/lowering time you recorded prior to starting this project. Install on the ESP, restart HomeAssistant, and that's it! HomeAssistant will now see a new cover titled Televator that you can use on your dashboard with up/down arrows, or inside NodeRed for automations.
 
 ### Automation Ideas
 In case you want some automation ideas, here goes. I do everything through NodeRed.
