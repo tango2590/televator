@@ -1,0 +1,42 @@
+captive_portal:
+
+output:
+  - platform: gpio
+    id: "PWM"
+    pin: 26
+  - platform: gpio
+    id: "DIR"
+    pin: 27
+
+switch:
+  - platform: output
+    name: "PWMswitch"
+    output: "PWM"
+    id: PWMswitch
+  - platform: output
+    name: "DIRswitch"
+    output: "DIR"
+    id: DIRswitch
+
+cover:
+  - platform: template
+    name: "Televator"
+    id: televator
+    optimistic: true
+#UP
+    open_action:
+      - switch.turn_off: DIRswitch
+      - switch.turn_on: PWMswitch
+      - delay: 23s
+      - switch.turn_off: PWMswitch
+#DOWN
+    close_action:
+      - switch.turn_on: DIRswitch
+      - switch.turn_on: PWMswitch
+      - delay: 19s
+      - switch.turn_off: DIRswitch
+      - switch.turn_off: PWMswitch
+#STOP
+    stop_action:
+      - switch.turn_off: DIRswitch
+      - switch.turn_off: PWMswitch
