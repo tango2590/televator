@@ -16,15 +16,15 @@ This project is meant to connect a standard 12v motor to HomeAssistant through E
 
 
 ### Instructions
-***If you have limited experience working with electricity, it is HIGHLY recommended you turn off power to the TV lift before beginning work.
+***If you have limited experience working with electricity, it is HIGHLY recommended you turn off power to the TV lift before beginning work.*
 
 Before starting the project, check your motor to determine it's peak amp usage, as this can affect the motor driver you use. For most small 12v motors, a 20A or 30A board will be sufficient. It is also recommended that you time how long it takes for your TV lift to raise and lower completely. This will come in handy if you want to automate it and don't want to risk burning out your motor. For me, it takes 21 seconds to rise, and 19 seconds to lower.
 
 A typical RV TV lift uses a momentary rocker switch to raise or lower the TV by applying power to the 12v motor (or reversing said power). In most of my projects, I try to retain physical switch control so others can use the device, however that is not the case here. Since the momentary switch reverses the incoming 12v power itself, switch control was not able to be retained without large amounts of rewiring (since my switch is located in the cabinet above the TV). This is easily fixable by adding a wireless smart switch to your setup.
 
-Start by raising your TV and disconnecting your 12v motor from the incoming power supply. Place 3 hole wago connectors on the positive and negative since they may become hot after the next step (depending if you shut off power). Above the TV, disconnect all 4 wires from the back of the rocker switch and connect positive to positive, negative to negative. Essentially you are passing the power from the incoming line to the outgoing line, bypassing the switch.
+<img src="/rockerswitch.jpg" height="500" width="300" />
 
-![Rocker Switch Wires](/rockerswitch.jpg)
+Start by raising your TV and disconnecting your 12v motor from the incoming power supply. Place 3 hole wago connectors on the positive and negative since they may become hot after the next step (depending if you shut off power). Above the TV, disconnect all 4 wires from the back of the rocker switch and connect positive to positive, negative to negative. Essentially you are passing the power from the incoming line to the outgoing line, bypassing the switch.
 
 Below the TV lift, wire the 12v to 5v stepdown into one of the 3 holes of the wago. This will be for powering the ESP32. The 3rd hole will be for supplying power to the motor driver. Add a wire from the 3rd hole to the VB+/VB- on the motor driver board. Connect the 12v motor's input wires to the MA(+) and MB(-). The Cytron board used in this project features an 12v passthrough so the board can change the outgoing 12v polarity depending on what the ESP tells it. There are 3 inputs on the other side of the board (GND, PWR, DIR) for connecting to the ESP. Using jumper wires:
 - GND should go to GND on the ESP
